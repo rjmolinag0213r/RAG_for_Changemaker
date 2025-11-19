@@ -1,0 +1,39 @@
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Document Processing
+pypdf2==3.0.1
+pdfplumber==0.10.3
+beautifulsoup4==4.12.3
+requests==2.31.0
+lxml==5.1.0
+
+# Text Processing and Chunking
+langchain==0.1.0
+langchain-community==0.0.10
+tiktoken==0.5.2
+
+# Embeddings
+sentence-transformers==2.2.2
+
+# Vector Database
+chromadb==0.4.22
+
+# LLM Integration
+llama-cpp-python==0.2.27
+huggingface-hub==0.20.1
+
+# Configuration
+pydantic==2.5.3
+pydantic-settings==2.1.0
+python-dotenv==1.0.0
+pyyaml==6.0.1
+
+# Utilities
+aiofiles==23.2.1
+jinja2==3.1.2
+
+# Logging
+loguru==0.7.2

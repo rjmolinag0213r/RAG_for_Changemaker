@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG System - Question Answering with Document Upload</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🤖 RAG System</h1>
+            <p class="subtitle">Intelligent Question Answering powered by Llama 3</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('query')">💬 Ask Questions</button>
+                <button class="tab-btn" onclick="switchTab('upload')">📄 Upload PDF</button>
+                <button class="tab-btn" onclick="switchTab('scrape')">🌐 Scrape URL</button>
+                <button class="tab-btn" onclick="switchTab('manage')">📚 Manage Documents</button>
+            </div>
+
+            <!-- Query Tab -->
+            <div id="query-tab" class="tab-content active">
+                <div class="card">
+                    <h2>Ask a Question</h2>
+                    <p class="description">Ask questions about your uploaded documents and scraped web content</p>
+                    
+                    <div class="query-form">
+                        <textarea 
+                            id="question-input" 
+                            placeholder="Enter your question here..."
+                            rows="4"
+                        ></textarea>
+                        
+                        <div class="form-row">
+                            <label>
+                                Number of sources:
+                                <input type="number" id="n-results" min="1" max="20" value="5">
+                            </label>
+                            <label>
+                                <input type="checkbox" id="return-sources" checked>
+                                Show sources
+                            </label>
+                        </div>
+                        
+                        <button onclick="submitQuery()" class="btn btn-primary">
+                            <span id="query-btn-text">Ask Question</span>
+                            <span id="query-spinner" class="spinner" style="display: none;"></span>
+                        </button>
+                    </div>
+
+                    <!-- Answer Display -->
+                    <div id="answer-section" style="display: none;">
+                        <h3>Answer:</h3>
+                        <div id="answer-text" class="answer-box"></div>
+                        
+                        <div id="sources-section" style="display: none;">
+                            <h3>Sources:</h3>
+                            <div id="sources-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Card -->
+                <div class="card stats-card">
+                    <h3>📊 System Statistics</h3>
+                    <div id="stats-content">
+                        <p>Loading...</p>
+                    </div>
+                    <button onclick="loadStats()" class="btn btn-secondary">Refresh</button>
+                </div>
+            </div>
+
+            <!-- Upload PDF Tab -->
+            <div id="upload-tab" class="tab-content">
+                <div class="card">
+                    <h2>Upload PDF Documents</h2>
+                    <p class="description">Upload PDF files to add them to the knowledge base</p>
+                    
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-icon">📄</div>
+                        <p>Drag & drop PDF files here or click to browse</p>
+                        <input type="file" id="pdf-input" accept=".pdf" multiple style="display: none;">
+                        <button onclick="document.getElementById('pdf-input').click()" class="btn btn-primary">
+                            Choose PDF Files
+                        </button>
+                    </div>
+
+                    <div id="upload-results" style="display: none;">
+                        <h3>Upload Results:</h3>
+                        <div id="upload-results-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scrape URL Tab -->
+            <div id="scrape-tab" class="tab-content">
+                <div class="card">
+                    <h2>Scrape Web Content</h2>
+                    <p class="description">Extract and index content from web pages</p>
+                    
+                    <div class="scrape-form">
+                        <input 
+                            type="url" 
+                            id="url-input" 
+                            placeholder="https://example.com/page"
+                            required
+                        >
+                        <button onclick="scrapeURL()" class="btn btn-primary">
+                            <span id="scrape-btn-text">Scrape & Index</span>
+                            <span id="scrape-spinner" class="spinner" style="display: none;"></span>
+                        </button>
+                    </div>
+
+                    <div id="scrape-results" style="display: none;">
+                        <h3>Scraping Results:</h3>
+                        <div id="scrape-results-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manage Documents Tab -->
+            <div id="manage-tab" class="tab-content">
+                <div class="card">
+                    <h2>Manage Documents</h2>
+                    <p class="description">View and manage your indexed documents</p>
+                    
+                    <div class="manage-actions">
+                        <button onclick="loadDocuments()" class="btn btn-secondary">Refresh List</button>
+                        <button onclick="clearAllDocuments()" class="btn btn-danger">Clear All Documents</button>
+                    </div>
+
+                    <div id="documents-list">
+                        <p>Loading documents...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>RAG System v1.0.0 | Powered by Llama 3 & ChromaDB</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
