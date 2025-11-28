@@ -1,18 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAG System - Question Answering with Document Upload</title>
-    <link rel="stylesheet" href="style.css">
+    <title>RAG System - Changemaking</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
+
 <body>
     <div class="container">
         <!-- Header -->
         <header>
-            <h1>🤖 RAG System</h1>
-            <p class="subtitle">Intelligent Question Answering powered by Llama 3</p>
+            <h1>🤖 RAG System- Changemaking</h1>
+            <p class="subtitle">By Illia Shybanov & Ricardo Molina Gonzalez</p>
         </header>
 
         <!-- Main Content -->
@@ -30,14 +31,10 @@
                 <div class="card">
                     <h2>Ask a Question</h2>
                     <p class="description">Ask questions about your uploaded documents and scraped web content</p>
-                    
+
                     <div class="query-form">
-                        <textarea 
-                            id="question-input" 
-                            placeholder="Enter your question here..."
-                            rows="4"
-                        ></textarea>
-                        
+                        <textarea id="question-input" placeholder="Enter your question here..." rows="4"></textarea>
+
                         <div class="form-row">
                             <label>
                                 Number of sources:
@@ -48,7 +45,7 @@
                                 Show sources
                             </label>
                         </div>
-                        
+
                         <button onclick="submitQuery()" class="btn btn-primary">
                             <span id="query-btn-text">Ask Question</span>
                             <span id="query-spinner" class="spinner" style="display: none;"></span>
@@ -59,7 +56,7 @@
                     <div id="answer-section" style="display: none;">
                         <h3>Answer:</h3>
                         <div id="answer-text" class="answer-box"></div>
-                        
+
                         <div id="sources-section" style="display: none;">
                             <h3>Sources:</h3>
                             <div id="sources-list"></div>
@@ -82,7 +79,7 @@
                 <div class="card">
                     <h2>Upload PDF Documents</h2>
                     <p class="description">Upload PDF files to add them to the knowledge base</p>
-                    
+
                     <div class="upload-area" id="upload-area">
                         <div class="upload-icon">📄</div>
                         <p>Drag & drop PDF files here or click to browse</p>
@@ -104,14 +101,9 @@
                 <div class="card">
                     <h2>Scrape Web Content</h2>
                     <p class="description">Extract and index content from web pages</p>
-                    
+
                     <div class="scrape-form">
-                        <input 
-                            type="url" 
-                            id="url-input" 
-                            placeholder="https://example.com/page"
-                            required
-                        >
+                        <input type="url" id="url-input" placeholder="https://example.com/page" required>
                         <button onclick="scrapeURL()" class="btn btn-primary">
                             <span id="scrape-btn-text">Scrape & Index</span>
                             <span id="scrape-spinner" class="spinner" style="display: none;"></span>
@@ -130,7 +122,7 @@
                 <div class="card">
                     <h2>Manage Documents</h2>
                     <p class="description">View and manage your indexed documents</p>
-                    
+
                     <div class="manage-actions">
                         <button onclick="loadDocuments()" class="btn btn-secondary">Refresh List</button>
                         <button onclick="clearAllDocuments()" class="btn btn-danger">Clear All Documents</button>
@@ -149,6 +141,7 @@
         </footer>
     </div>
 
-    <script src="app.js"></script>
+    <script src="/static/app.js"></script>
 </body>
+
 </html>

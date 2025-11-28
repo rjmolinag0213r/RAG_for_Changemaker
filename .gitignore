@@ -58,3 +58,7 @@ data/
 # Vector store
 chroma_db/
 vectorstore/
+
+# Models
+models/
+*.gguf
